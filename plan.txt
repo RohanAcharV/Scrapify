@@ -53,6 +53,12 @@ Backend development :
 
 Contributors : Prateek , Prajwal 
 
+##############################################################################################
+If there is anything else , change in plans , suggestions put it below 
+
+-> .......
+
+
 
 
 
