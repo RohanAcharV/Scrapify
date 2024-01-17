@@ -4,7 +4,7 @@ import Scrap from "../Scrap/Scrap";
 import { Button } from "@mui/material";
 
 function Home(){
-    const [toggle , settoggle ] = useState(true);
+    const [toggle , settoggle ] = useState(false);
     return (
        <div>
         <Button onClick={()=>settoggle(!toggle)}>Click me</Button>
