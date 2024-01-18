@@ -1,5 +1,5 @@
 // PropertiesForm.jsx
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import {
   TextField,
   Button,
@@ -16,8 +16,9 @@ import {
   InputLabel,
 } from '@mui/material';
 
-const PropertiesForm = () => {
+const PropertiesForm = ({flag,editdata}) => {
   const [formData, setFormData] = useState({
+    category:'Properties',
     propertyType: 'house', 
     transactionType: 'sale', 
     price:'',
@@ -28,7 +29,13 @@ const PropertiesForm = () => {
     address: '',
     landmark: '',
     additionalDescription: '',
+    postedDate: new Date().toLocaleDateString('en-GB'),
   });
+
+  useEffect(()=>{
+    if(flag=='edit' && editdata)
+      setFormData(editdata)
+  },[flag]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -104,7 +111,7 @@ const PropertiesForm = () => {
         />
         <Box mt={2}>
           <Button type="submit" variant="contained" color="primary" sx={{width:'100%',fontWeight:'bold'}}>
-            Submit
+          {flag=='save'? ('Submit'):('Update')}
           </Button>
         </Box>
       </form>

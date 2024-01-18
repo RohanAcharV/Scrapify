@@ -67,10 +67,10 @@ const Sell_Form = () => {
         </Grid>
       </Grid>
       <Divider sx={{margin:'2vh 0'}}/>
-      {selectedCategory === 'vehicle' && <VehicleForm />}
-      {selectedCategory === 'electronics' && <ElectronicsForm />}
-      {selectedCategory === 'mobiles' && <MobilesForm />}
-      {selectedCategory === 'properties' && <PropertiesForm />}
+      {selectedCategory === 'vehicle' && <VehicleForm flag={'save'}/>}
+      {selectedCategory === 'electronics' && <ElectronicsForm flag={'save'}/>}
+      {selectedCategory === 'mobiles' && <MobilesForm flag={'save'}/>}
+      {selectedCategory === 'properties' && <PropertiesForm flag={'save'}/>}
     </Box>
   );
 };

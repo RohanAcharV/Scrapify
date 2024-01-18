@@ -1,5 +1,5 @@
 // MobilesForm.jsx
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import {
   TextField,
   Button,
@@ -12,7 +12,7 @@ import {
   InputLabel,
 } from '@mui/material';
 
-const MobilesForm = () => {
+const MobilesForm = ({flag,editdata}) => {
   const [formData, setFormData] = useState({
     category:'Mobiles',
     mobileType: '',
@@ -21,7 +21,14 @@ const MobilesForm = () => {
     specifications: '',
     purchaseDate: '',
     additionalDescription: '',
+    address:'',
+    postedDate: new Date().toLocaleDateString('en-GB'),
   });
+
+  useEffect(()=>{
+    if(flag=='edit' && editdata)
+      setFormData(editdata)
+  },[flag]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -84,7 +91,7 @@ const MobilesForm = () => {
         <TextField label="Address" fullWidth margin="normal" name="address" value={formData.address} onChange={handleChange} />
         <Box mt={2}>
           <Button type="submit" variant="contained" color="primary"  sx={{width:'100%',fontWeight:'bold'}}>
-            Submit
+          {flag=='save'? ('Submit'):('Update')}
           </Button>
         </Box>
       </form>

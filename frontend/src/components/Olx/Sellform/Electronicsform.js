@@ -1,5 +1,5 @@
 // ElectronicsForm.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   TextField,
   Button,
@@ -12,7 +12,7 @@ import {
   InputLabel,
 } from '@mui/material';
 
-const ElectronicsForm = () => {
+const ElectronicsForm = ({flag,editdata}) => {
   const [formData, setFormData] = useState({
     category:'Electronics',
     electronicsType: '',
@@ -21,7 +21,14 @@ const ElectronicsForm = () => {
     specifications: '',
     purchaseDate: '', 
     additionalDescription: '',
+    postedDate: new Date().toLocaleDateString('en-GB'),
+    address:''
   });
+
+  useEffect(()=>{
+    if(flag=='edit' && editdata)
+      setFormData(editdata)
+  },[flag]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -88,7 +95,7 @@ const ElectronicsForm = () => {
         <TextField label="Address" fullWidth margin="normal" name="address" value={formData.address} onChange={handleChange} />
         <Box mt={2}>
           <Button type="submit" variant="contained" color="primary" sx={{width:'100%',fontWeight:'bold'}}>
-            Submit
+            {flag=='save'? ('Submit'):('Update')}
           </Button>
         </Box>
       </form>
