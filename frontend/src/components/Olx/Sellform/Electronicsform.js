@@ -33,7 +33,9 @@ const ElectronicsForm = ({flag,editdata}) => {
     purchaseDate: '', 
     additionalDescription: '',
     postedDate: new Date().toLocaleDateString('en-GB'),
-    address:''
+    address:'',
+    images:[],
+    useremail:localStorage.getItem('user_email')
   });
 
   useEffect(()=>{
@@ -55,6 +57,9 @@ const ElectronicsForm = ({flag,editdata}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle the form submission logic here
+    if(flag=='save'){
+      //handle save logic here
+    }
     console.log(formData);
   };
 

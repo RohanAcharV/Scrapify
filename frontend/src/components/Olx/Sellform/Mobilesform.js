@@ -33,6 +33,8 @@ const MobilesForm = ({flag,editdata}) => {
     additionalDescription: '',
     address:'',
     postedDate: new Date().toLocaleDateString('en-GB'),
+    images:[],
+    useremail:localStorage.getItem('user_email')
   });
 
   useEffect(()=>{
@@ -52,6 +54,9 @@ const MobilesForm = ({flag,editdata}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle the form submission logic here
+    if(flag=='save'){
+      //handle save logic here
+    }
     console.log(formData);
   };
 

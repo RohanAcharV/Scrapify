@@ -38,7 +38,8 @@ const VehicleForm = ({flag,editdata}) => {
     kmDriven: '',
     additionalDescription: '',
     postedDate: new Date().toLocaleDateString('en-GB'),
-    images:[]
+    images:[],
+    useremail:localStorage.getItem('user_email')
   });
 
   useEffect(()=>{
@@ -63,6 +64,9 @@ const VehicleForm = ({flag,editdata}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle the form submission logic here
+    if(flag=='save'){
+      //handle save logic here
+    }
     console.log(formData);
   };
 
